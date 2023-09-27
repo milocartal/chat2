@@ -47,14 +47,14 @@ export const NavBar: React.FC<NavbarComponent> = (props) => {
               <div className="flex justify-between gap-1 h-14 mr-1" key={conv.id}>
                 <Link
                   href={`/conversations/${conv.id}`}
-                  className={`flex w-full gap-3 rounded-xl px-3 py-2 text-clip ${
+                  className={`flex w-5/6 gap-3 rounded-xl px-3 py-2 text-clip ${
                     selectId && selectId === conv.id
                       ? "bg-[#27282A]"
                       : "hover:bg-[#2a2b2d]"
                   }`}
                 >
                   <GoCommentDiscussion className="text-3xl" />
-                  <p className="w-full text-ellipsis">{conv.name}</p>
+                  <p className="truncate">{conv.name}</p>
                 </Link>
                 <button 
                   className="px-3 py-2 rounded-xl hover:text-red-600 hover:bg-[rgba(220,38,38,0.2)]"
