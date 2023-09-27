@@ -1,0 +1,37 @@
+version: '3.1'
+services:
+    mysql:
+        image: mysql:5.7
+        container_name: chat2db
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: dbsql
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: admin
+        ports:
+            - "3306:3306"
+        volumes:
+            - db-sql:/var/lib/mysql
+        networks:
+            - bd-chat
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:latest
+        container_name: chatphpmyadmin
+        environment:
+            PMA_HOST: mysql
+            PMA_PORT: 3306
+            MYSQL_ROOT_PASSWORD: root
+            PMA_USER: admin
+            PMA_PASSWORD: admin
+        ports:
+            - "8080:80" # Mapping container port 80 to host port 8080
+        depends_on:
+            - mysql
+        networks:
+            - bd-chat
+
+volumes:
+    db-sql:
+
+networks:
+    bd-chat: {}
