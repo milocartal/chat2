@@ -25,6 +25,7 @@ export default function Custom404() {
         <h1>Et merde, une 404, envie de crever</h1>
         <button
           className="rounded-lg bg-bg-900 px-5 py-4 text-xl font-semibold text-white"
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onClick={() => router.push("/")}
         >
           Chat{" "}
